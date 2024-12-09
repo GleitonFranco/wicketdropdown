@@ -1,0 +1,179 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.gleitonfranco</groupId>
+  <artifactId>wicketdropdown</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>wicketdropdown Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <wicket.version>10.2.0</wicket.version>
+    <wicketstuff.version>10.1.0</wicketstuff.version>
+    <jetty.version>11.0.14</jetty.version>
+    <slf4j.version>2.0.9</slf4j.version>
+    <junit.version>5.7.0</junit.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
+    <wtp.version>none</wtp.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-core</artifactId>
+      <version>${wicket.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-util</artifactId>
+      <version>${wicket.version}</version>
+    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.wicketTutorial.commons.bootstrap</groupId>-->
+<!--      <artifactId>BootstrapCommon</artifactId>-->
+<!--      <version>1.0-SNAPSHOT</version>-->
+<!--    </dependency>-->
+
+    <!-- LOGGING DEPENDENCIES - LOG4J -->
+<!--    <dependency>-->
+<!--      <groupId>org.slf4j</groupId>-->
+<!--      <artifactId>slf4j-simple</artifactId>-->
+<!--      <version>${slf4j.version}</version>-->
+<!--    </dependency>-->
+
+
+    <!--  JUNIT DEPENDENCY FOR TESTING -->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-engine</artifactId>-->
+<!--      <version>${junit.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.apache.wicket</groupId>-->
+<!--      <artifactId>wicket-tester</artifactId>-->
+<!--      <version>${wicket.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+    <!--  JETTY DEPENDENCIES FOR TESTING  -->
+<!--    <dependency>-->
+<!--      <groupId>org.eclipse.jetty</groupId>-->
+<!--      <artifactId>jetty-server</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--      <version>${jetty.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.eclipse.jetty</groupId>-->
+<!--      <artifactId>jetty-webapp</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--      <version>${jetty.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.eclipse.jetty</groupId>-->
+<!--      <artifactId>jetty-jmx</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--      <version>${jetty.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.eclipse.jetty.websocket</groupId>-->
+<!--      <artifactId>websocket-jakarta-server</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--      <version>${jetty.version}</version>-->
+<!--    </dependency>-->
+
+
+    <dependency>
+      <groupId>org.eclipse.jetty.aggregate</groupId>
+      <artifactId>jetty-all</artifactId>
+      <version>11.0.0.beta1</version>
+      <type>pom</type>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>wicketdropdown</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+      </resource>
+    </resources>
+<!--    <testResources>-->
+<!--      <testResource>-->
+<!--        <directory>src/test/resources</directory>-->
+<!--      </testResource>-->
+<!--      <testResource>-->
+<!--        <directory>src/test/java</directory>-->
+<!--        <includes>-->
+<!--          <include>**</include>-->
+<!--        </includes>-->
+<!--        <excludes>-->
+<!--          <exclude>**/*.java</exclude>-->
+<!--        </excludes>-->
+<!--      </testResource>-->
+<!--    </testResources>-->
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+        </configuration>
+      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.eclipse.jetty</groupId>-->
+<!--        <artifactId>jetty-maven-plugin</artifactId>-->
+<!--        <version>${jetty.version}</version>-->
+<!--        <configuration>-->
+<!--          <systemProperties>-->
+<!--            <systemProperty>-->
+<!--              <name>maven.project.build.directory.test-classes</name>-->
+<!--              <value>${project.build.directory}/test-classes</value>-->
+<!--            </systemProperty>-->
+<!--          </systemProperties>-->
+<!--&lt;!&ndash;          <jettyXml>${project.basedir}/src/test/jetty/jetty.xml,${project.basedir}/src/test/jetty/jetty-ssl.xml,${project.basedir}/src/test/jetty/jetty-http.xml,${project.basedir}/src/test/jetty/jetty-https.xml</jettyXml>&ndash;&gt;-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <uriEncoding>UTF-8</uriEncoding>
+          <path>/wicketdropdown</path>
+          <update>true</update>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>Apache Nexus</id>
+      <url>https://repository.apache.org/content/repositories/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+      </snapshots>
+    </repository>
+  </repositories>
+</project>
+
+
+<!--        https://wicket.apache.org/learn/examples/dropdownchoice.html-->

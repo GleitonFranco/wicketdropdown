@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<body>
+<form wicket:id="form">
+    <h1>Assign manager</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td wicket:id="name">Some employee</td>
+        </tr>
+        <tr>
+            <th>Managed by</th>
+            <td>
+                <select wicket:id="managedBy">
+                    <option>Some Person</option>
+                    <option>Some Other Person</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="Save"/></td></tr>
+    </table>
+</form>
+</body>
+</html>
